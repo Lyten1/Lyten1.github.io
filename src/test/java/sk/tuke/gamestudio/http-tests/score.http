@@ -1,0 +1,13 @@
+### GET request with a header
+GET http://localhost:8080/api/score/HMaM
+
+### Post
+POST http://localhost:8080/api/score
+Content-Type: application/json
+
+{
+  "game": "HMaM",
+  "player": "Beta",
+  "points": 100,
+  "playedOn": "2019-03-25T12:40:33"
+}

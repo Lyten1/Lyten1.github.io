@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="userController" type="sk.tuke.gamestudio.server.controller.UserRestController"*/-->
+
+<div th:fragment="header">
+    <h1>Welcome to <a href="/">Gamestudio!</a></h1>
+<!--    <span th:if="${@userController.logged}">-->
+<!--        Logged as: <span th:text="${@userController.loggedUser.login}"/>-->
+<!--        <a href="/logout">Logout</a><br/>-->
+<!--    </span>-->
+
+<!--    <span th:if="not ${@userController.logged}">-->
+<!--        Not logged. Please-->
+<!--        <a href="/">login or register</a>.<br/>-->
+<!--    </span>-->
+</div>
+
+<div th:fragment="footer">
+    <hr/>
+    This is gamestudio!
+</div>
+
+</html>

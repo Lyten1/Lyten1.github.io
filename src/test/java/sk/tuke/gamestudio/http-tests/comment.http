@@ -1,0 +1,14 @@
+### GET request with a header
+GET http://localhost:8080/api/comment/HMaM
+
+### Post request with a header
+POST http://localhost:8080/api/comment
+Content-Type: application/json
+
+{
+  "game": "HMaM",
+  "player": "Beta",
+  "comment": "Hello, world",
+  "commentedOn": "2024-03-18T09:56:39.398+00:00"
+}
+

@@ -1,0 +1,17 @@
+### GET request average rate
+GET http://localhost:8080/api/rating/HMaM
+
+### GET request rate of player
+GET http://localhost:8080/api/rating/HMaM/Legolas
+
+### Post
+POST http://localhost:8080/api/rating
+Content-Type: application/json
+
+{
+  "game": "HMaM",
+  "player": "Beta",
+  "rating": 3,
+  "ratedOn": "2019-03-25T12:40:33"
+}
+

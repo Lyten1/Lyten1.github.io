@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>HMaM authorization</title>
+
+    <style>
+        .game-title {
+            color: #b186dc; /* Червоний колір тексту */
+            text-align: center; /* Вирівнювання тексту по центру */
+            margin-top: 0; /* Відсутність верхнього відступу */
+            margin-bottom: 1em; /* Невеликий відступ знизу для відокремлення від форм */
+            font-size: 2.5em; /* Розмір шрифту */
+            font-weight: bold; /* Жирний шрифт */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #e8e8e8;
+            height: 100vh; /* Висота на всю висоту вікна переглядача */
+            margin: 0;
+            font-family: "Comic Sans MS";
+            font-size: 25px;
+        }
+
+        .container {
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap; /* Дозволяємо обгортання елементів, якщо не вистачає місця */
+            gap: 20px; /* Відступ між формами */
+            width: 100%;
+            max-width: 1400px; /* максимальна ширина контейнера */
+        }
+
+        .user-form {
+            flex: 1; /* кожна форма займає рівну частину контейнера */
+            margin: 0 50px; /* додаємо трохи відступу між формами */
+            background-color: #fff;
+            padding: 70px;
+            border-radius: 17px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            align-items: center;      /* Centers children horizontally */
+            justify-content: center;  /* Centers children vertically */
+        }
+
+        label, button {
+            margin-right: 20px;
+        }
+        label {
+            display: block; /* Makes the label take the full width of its container */
+            text-align: center; /* Centers the text within the label */
+            margin-bottom: 10px; /* Adds some space below the label */
+        }
+
+        .status {
+            color: #6a9d6a;
+            font-weight: bold;
+        }
+
+        .login{
+            padding-top: 30px;
+        }
+        .password{
+            padding-top: 30px;
+            padding-bottom: 30px ;
+        }
+
+        input{
+            width: 100%;                /* Makes the input take the full width of its container */
+            margin-bottom: 10px;        /* Adds some space below the input */
+            box-sizing: border-box;     /* Includes padding and border in the element's total width and height */
+            border: 3px solid #ccc;     /* Adds a border to the input */
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 25px;
+            text-align: center;
+            font-family: "Comic Sans MS";
+        }
+
+        .butt {
+            width: 100%; /* Makes the button take the full width of its container */
+            font-family: "Comic Sans MS";
+            font-size: 30px;
+            padding: 12px 24px; /* Top and bottom padding 12px, left and right padding 24px */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+
+        .butt-active {
+            background-color: #91c294; /* Green background */
+            color: white; /* White text */
+            border: none; /* No border */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s, transform 0.2s; /* Smooth transition for background color and transform */
+        }
+
+        .butt-active:hover {
+            background-color: #5bab5f; /* Darker shade of green when hovered */
+            transform: translateY(-2px); /* Slightly raise the button when hovered */
+        }
+
+        .butt-active:active {
+            transform: translateY(1px);
+        }
+
+        .butt-disabled {
+            padding: 12px 24px; /* Top and bottom padding 12px, left and right padding 24px */
+            border: none; /* No border */
+            background-color: #cccccc; /* Сірий колір */
+            color: #666666; /* Сірий колір для тексту */
+            cursor: not-allowed; /* Курсор у вигляді забороненого знаку */
+            box-shadow: none; /* Видалення тіні */
+        }
+
+        .register{
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .register a {
+            color: #5872da;
+            text-decoration: none;
+            cursor: pointer; /* Встановлення курсору у вигляді руки, щоб вказати, що елемент можна натискати */
+            background-color: transparent; /* Прозорий фон, якщо він був змінений */
+        }
+
+        .register a:hover {
+            color: #889ae0;
+
+        }
+
+
+    </style>
+
+</head>
+<body>
+<h1 class="game-title">Heroes of Might and Magic</h1>
+<div class="container">
+    <div id="user1" class="user-form">
+        <label>Authorise <b><u>1-st</u></b> player</label>
+        <div class="login">
+            <label for="login1">Login:</label>
+            <input type="text" id="login1" name="login1">
+        </div>
+        <div class="password">
+            <label for="password1">Password:</label>
+            <input type="password" id="password1" name="password1">
+        </div>
+
+        <button class="butt butt-active" id="actionButton1" onclick="authorizeUser(1)">Authorization</button>
+        <div class="register"><a href="#" id="toggleLink1" onclick="toggleForm(1)">Register</a></div>
+        <p class="status"></p>
+    </div>
+    <div id="user2" class="user-form">
+        <label>Authorise <b><u>2-nd</u></b> player</label>
+        <div class="login">
+            <label for="login2">Login:</label>
+            <input type="text" id="login2" name="login2">
+        </div>
+        <div class="password">
+            <label for="password2">Password:</label>
+            <input type="password" id="password2" name="password2">
+        </div>
+        <button class="butt butt-active" id="actionButton2" onclick="authorizeUser(2)">Authorization</button>
+        <div class="register"><a href="#" id="toggleLink2" onclick="toggleForm(2)">Register</a></div>
+        <p class="status"></p>
+    </div>
+</div>
+<script>
+
+    function toggleForm(toggleNumber) {
+        // Отримуємо кнопку та посилання
+        var actionButton = document.getElementById(`actionButton${toggleNumber}`);
+        var toggleLink = document.getElementById(`toggleLink${toggleNumber}`);
+
+        // Перевіряємо текст посилання, щоб визначити стан
+        if (toggleLink.textContent === 'Register') {
+            // Змінюємо текст кнопки та посилання
+            actionButton.textContent = 'Register';
+            toggleLink.textContent = 'Authorization';
+
+            // Змінюємо функцію, яка буде викликатися при кліку
+            actionButton.onclick = function() { registrateUser(toggleNumber); };
+        } else {
+            // Якщо ми вже у режимі реєстрації, змінюємо все назад
+            actionButton.textContent = 'Authorization';
+            toggleLink.textContent = 'Register';
+
+            // Відновлюємо первинний обробник кліків
+            actionButton.onclick = function() { authorizeUser(toggleNumber); };
+        }
+    }
+
+    function registrateUser(userNumber) {
+        const loginInput = document.getElementById(`login${userNumber}`);
+        const passwordInput = document.getElementById(`password${userNumber}`);
+
+        const status = document.querySelector(`#user${userNumber} .status`);
+        const button = document.querySelector(`#user${userNumber} button`);
+
+        if (loginInput.value.trim() === "") {
+            alert('Please, enter login');
+            return;
+        }
+        if (!/^[a-zA-Z0-9_-]+$/.test(loginInput.value.trim())) {
+            alert('Login contains invalid characters. Only alphanumeric, underscore, and dash are allowed.');
+            return;
+        }
+        if (passwordInput.value.trim() === "") {
+            alert('Please, enter password');
+            return;
+        }
+        if (!/^[a-zA-Z0-9_-]+$/.test(passwordInput.value.trim())) {
+            alert('Password contains invalid characters. Only alphanumeric, underscore, and dash are allowed.');
+            return;
+        }
+
+
+
+
+        loginInput.disabled = true; // Блокуємо поле вводу
+        passwordInput.disabled = true; // Блокуємо поле вводу
+
+        button.disabled = true; // Блокуємо кнопку
+        button.classList.add('butt-disabled'); // Додаємо клас для сірого кольору
+        button.classList.remove('butt-active'); // Додаємо клас для сірого кольору
+        button.textContent = "Authorized";
+
+        status.textContent = `${loginInput.value} registered`;
+
+        // Показати сповіщення, якщо обидва користувачі авторизовані
+        const allInputs = document.querySelectorAll('input[type="text"]');
+        const allAuthorized = Array.from(allInputs).every(input => input.disabled);
+        if (allAuthorized) {
+            alert('Обидва користувачі авторизовані. Гра починається!');
+        }
+    }
+
+    function authorizeUser( userNumber) {
+        const loginInput = document.getElementById(`login${userNumber}`);
+        const passwordInput = document.getElementById(`password${userNumber}`);
+
+        const status = document.querySelector(`#user${userNumber} .status`);
+        const button = document.querySelector(`#user${userNumber} button`);
+
+        if (loginInput.value.trim() === "") {
+            alert('Please, enter login');
+            return;
+        }
+        if (passwordInput.value.trim() === "") {
+            alert('Please, enter password');
+            return;
+        }
+
+        loginInput.disabled = true; // Блокуємо поле вводу
+        passwordInput.disabled = true; // Блокуємо поле вводу
+
+        button.disabled = true; // Блокуємо кнопку
+        button.classList.add('butt-disabled'); // Додаємо клас для сірого кольору
+        button.classList.remove('butt-active'); // Додаємо клас для сірого кольору
+        button.textContent = "Authorized";
+
+        status.textContent = `${loginInput.value} authorized`;
+
+        // Показати сповіщення, якщо обидва користувачі авторизовані
+        const allInputs = document.querySelectorAll('input[type="text"]');
+        const allAuthorized = Array.from(allInputs).every(input => input.disabled);
+        if (allAuthorized) {
+            alert('Обидва користувачі авторизовані. Гра починається!');
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+
+<div id="mydiv"></div>
+
+<script type="text/babel">
+
+
+
+    function Authorisate() {
+        return <>
+            <meta charSet="UTF-8" />
+            <title>HMaM authorization</title>
+            <h1 className="game-title">Heroes of Might and Magic</h1>
+            <div className="container">
+                <div id="user1" className="user-form">
+                    <label>
+                        Authorise{" "}
+                        <b>
+                            <u>1-st</u>
+                        </b>{" "}
+                        player
+                    </label>
+                    <div className="login">
+                        <label htmlFor="login1">Login:</label>
+                        <input type="text" id="login1" name="login1" />
+                    </div>
+                    <div className="password">
+                        <label htmlFor="password1">Password:</label>
+                        <input type="password" id="password1" name="password1" />
+                    </div>
+                    <button
+                        className="butt butt-active"
+                        id="actionButton1"
+                        onclick="authorizeUser(1)"
+                    >
+                        Authorization
+                    </button>
+                    <div className="register">
+                        <a href="#" id="toggleLink1" onclick="toggleForm(1)">
+                            Register
+                        </a>
+                    </div>
+                    <p className="status" />
+                </div>
+                <div id="user2" className="user-form">
+                    <label>
+                        Authorise{" "}
+                        <b>
+                            <u>2-nd</u>
+                        </b>{" "}
+                        player
+                    </label>
+                    <div className="login">
+                        <label htmlFor="login2">Login:</label>
+                        <input type="text" id="login2" name="login2" />
+                    </div>
+                    <div className="password">
+                        <label htmlFor="password2">Password:</label>
+                        <input type="password" id="password2" name="password2" />
+                    </div>
+                    <button
+                        className="butt butt-active"
+                        id="actionButton2"
+                        onclick="authorizeUser(2)"
+                    >
+                        Authorization
+                    </button>
+                    <div className="register">
+                        <a href="#" id="toggleLink2" onclick="toggleForm(2)">
+                            Register
+                        </a>
+                    </div>
+                    <p className="status" />
+                </div>
+            </div>
+        </>
+            ;
+    }
+
+
+
+    const container = document.getElementById('mydiv');
+    const root = ReactDOM.createRoot(container);
+    root.render(<Authorisate />)
+</script>
+
+</body>
+</html>

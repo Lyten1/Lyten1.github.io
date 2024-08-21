@@ -1,0 +1,94 @@
+.container {
+
+    background-image: url("../../../public/images/grove.png");
+    /* snow,
+    swamp,
+    fallout,
+    grove */
+
+
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 10px solid rgb(146, 175, 166);
+    min-width: 1320px;
+    width: 1320px;
+    max-width: 1320px;
+    margin: 10px 100px 40px 100px;
+    color: #a9aaab;
+}
+
+
+
+.board {
+    margin-top: 40px;
+}
+
+
+.players {
+    display: flex;
+    height: 100px;
+    color: rgb(184, 166, 94);
+    font-size: 28px;
+    text-align: center;
+}
+
+.players .player1 {
+    padding: 25px 60px;
+    width: 50%;
+    background-image: url("../../../public/images/banner.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50% 150%;
+}
+
+.players .player2 {
+    padding: 25px 60px;
+    width: 50%;
+    background-image: url("../../../public/images/banner.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50% 150%;
+}
+
+
+
+
+.sprite {
+    width: 55px;
+    height: 55px;
+}
+
+.actualTile {
+    border: 2px solid rgba(202, 119, 228, 0.631);
+    background-color: rgba(172, 106, 192, 0.195) !important;
+
+}
+
+.tileToMoveLight {
+    border: 2px solid rgba(89, 150, 131, 0.583);
+    background-color: rgb(96 156 137 / 20%) !important;
+}
+
+.tileToMoveLight:hover {
+    border: 2px solid rgba(96, 184, 156, 0.583);
+    background-color: rgba(96, 184, 156, 0.45) !important;
+}
+
+.tileToMoveDark {
+    border: 2px solid rgba(224, 145, 145, 0.583);
+    background-color: rgb(150 89 89 / 20%) !important;
+}
+
+.tileToMoveDark:hover {
+    border: 2px solid rgba(224 145 145, 0.583);
+    background-color: rgba(150, 89, 89, 0.45) !important;
+}
+
+.without-border {
+    border: none !important;
+}
+
+.Unit {
+    transition: transform 0.5s ease-in-out;
+}

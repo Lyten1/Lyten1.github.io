@@ -1,0 +1,126 @@
+.game-title {
+    color: #b186dc; /* Червоний колір тексту */
+    text-align: center; /* Вирівнювання тексту по центру */
+    margin-top: 0; /* Відсутність верхнього відступу */
+    margin-bottom: 1em; /* Невеликий відступ знизу для відокремлення від форм */
+    font-size: 2.5em; /* Розмір шрифту */
+    font-weight: bold; /* Жирний шрифт */
+}
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #e8e8e8;
+    height: 100vh; /* Висота на всю висоту вікна переглядача */
+    margin: 0;
+    font-family: "Comic Sans MS";
+    font-size: 25px;
+}
+
+.container {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Дозволяємо обгортання елементів, якщо не вистачає місця */
+    gap: 20px; /* Відступ між формами */
+    width: 100%;
+    max-width: 1400px; /* максимальна ширина контейнера */
+}
+
+.user-form {
+    flex: 1; /* кожна форма займає рівну частину контейнера */
+    margin: 0 50px; /* додаємо трохи відступу між формами */
+    background-color: #fff;
+    padding: 70px;
+    border-radius: 17px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    align-items: center;      /* Centers children horizontally */
+    justify-content: center;  /* Centers children vertically */
+}
+
+label, button {
+    margin-right: 20px;
+}
+label {
+    display: block; /* Makes the label take the full width of its container */
+    text-align: center; /* Centers the text within the label */
+    margin-bottom: 10px; /* Adds some space below the label */
+}
+
+.status {
+    color: #6a9d6a;
+    font-weight: bold;
+}
+
+.login{
+    padding-top: 30px;
+}
+.password{
+    padding-top: 30px;
+    padding-bottom: 30px ;
+}
+
+input{
+    width: 100%;                /* Makes the input take the full width of its container */
+    margin-bottom: 10px;        /* Adds some space below the input */
+    box-sizing: border-box;     /* Includes padding and border in the element's total width and height */
+    border: 3px solid #ccc;     /* Adds a border to the input */
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 25px;
+    text-align: center;
+    font-family: "Comic Sans MS";
+}
+
+.butt {
+    width: 100%; /* Makes the button take the full width of its container */
+    font-family: "Comic Sans MS";
+    font-size: 30px;
+    padding: 12px 24px; /* Top and bottom padding 12px, left and right padding 24px */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+
+.butt-active {
+    background-color: #91c294; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition for background color and transform */
+}
+
+.butt-active:hover {
+    background-color: #5bab5f; /* Darker shade of green when hovered */
+    transform: translateY(-2px); /* Slightly raise the button when hovered */
+}
+
+.butt-active:active {
+    transform: translateY(1px);
+}
+
+.butt-disabled {
+    padding: 12px 24px; /* Top and bottom padding 12px, left and right padding 24px */
+    border: none; /* No border */
+    background-color: #cccccc; /* Сірий колір */
+    color: #666666; /* Сірий колір для тексту */
+    cursor: not-allowed; /* Курсор у вигляді забороненого знаку */
+    box-shadow: none; /* Видалення тіні */
+}
+
+.register{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.register a {
+    color: #5872da;
+    text-decoration: none;
+    cursor: pointer; /* Встановлення курсору у вигляді руки, щоб вказати, що елемент можна натискати */
+    background-color: transparent; /* Прозорий фон, якщо він був змінений */
+}
+
+.register a:hover {
+    color: #889ae0;
+
+}
